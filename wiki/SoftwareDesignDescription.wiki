@@ -73,6 +73,7 @@ The library is composed mainly by six Java files (_!FileChooser_, _!FileChooserC
 ==5.2. File chooser==
 
 All the functionalities of the file chooser are implemented in the class _!FileChooserCore_, whom in his constructor requires an instance of the interface _!FileChooser_. _!FileChooser_ defines the methods which a subclass of _View_, that uses the layout _file_chooser_, must implement in order to be used as a file chooser.
+
 In this way, we can 'simulate' multiple inheritance (which is not supported by Java): the classes _!FileChooserDialog_ y _!FileChooserActivity_ inherit, respectively, from the classes _Dialog_ and _Activity_, and in his constructors they create an instance of _!FileChooserCore_ in order to 'inherit' also all the features implemented by this class.
 
 ==5.3. User interface==
@@ -82,6 +83,7 @@ The graphical user interface is defined by the XML files _file_chooser_ and _fil
 _file_chooser_ defines the interface of the file chooser, which is composed by a vertical layout, which occupies all the width and height of the screen and in which the files and folder (that can be selected) are listed, and by two buttons located in the bottom, one for create files or folders and another one for select the current folder (in the case that the file chooser is being used for select folders instead of files).
 
 _file_item_ defines the interface of the graphical component used for represent the files and folders that are listed in the vertical layout of the file chooser. This component is composed by a icon, which allows to differentiate files from folders, and a label, which shows the file's name.
+
 _file_chooser_ is used by the classes _!FileChooserDialog_ and _!FileChooserActivity_, which acts as intermediates between the layout and the class _!FileChooserCore_, while _file_item_ is used by the class _!FileItem_, which is a subclass of _!LineaLayout_ that defines the graphic component used for represent files and folder.
 
 ==5.4. Internationalization==

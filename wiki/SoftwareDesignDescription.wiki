@@ -72,8 +72,8 @@ The library is composed mainly by six Java files (_!FileChooser_, _!FileChooserC
 
 ==5.2. File chooser==
 
-All the functionalities of the file chooser are implemented in the class _FileChooserCore_, whom in his constructor requires an instance of the interface _FileChooser_. _FileChooser_ defines the methods which a subclass of _View_, that uses the layout _file_chooser_, must implement in order to be used as a file chooser.
-In this way, we can 'simulate' multiple inheritance (which is not supported by Java): the classes _FileChooserDialog_ y _FileChooserActivity_ inherit, respectively, from the classes _Dialog_ and _Activity_, and in his constructors they create an instance of _FileChooserCore_ in order to 'inherit' also all the features implemented by this class.
+All the functionalities of the file chooser are implemented in the class _!FileChooserCore_, whom in his constructor requires an instance of the interface _!FileChooser_. _!FileChooser_ defines the methods which a subclass of _View_, that uses the layout _file_chooser_, must implement in order to be used as a file chooser.
+In this way, we can 'simulate' multiple inheritance (which is not supported by Java): the classes _!FileChooserDialog_ y _!FileChooserActivity_ inherit, respectively, from the classes _Dialog_ and _Activity_, and in his constructors they create an instance of _!FileChooserCore_ in order to 'inherit' also all the features implemented by this class.
 
 ==5.3. User interface==
 

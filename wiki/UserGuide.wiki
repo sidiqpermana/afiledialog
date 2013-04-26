@@ -14,7 +14,7 @@ You can check the [http://developer.android.com/tools/projects/projects-eclipse.
 
 ==1.2. Show the dialog==
 
-Then, if you want to use a _Dialog_ to show the file chooser, you can use the following lines:
+If you want to use a _Dialog_ to show the file chooser, you can use the following lines:
 
 <code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
@@ -49,20 +49,20 @@ In order to get the _File_ object, representing the file selected, if you are us
     dialog.addListener(new FileChooserDialog.OnFileSelectedListener() {
         public void onFileSelected(Dialog source, File file) {
             source.hide();
-			Toast toast = Toast.makeText(source.getContext(), "File selected: " + file.getName(), Toast.LENGTH_LONG);
-			toast.show();
+            Toast toast = Toast.makeText(source.getContext(), "File selected: " + file.getName(), Toast.LENGTH_LONG);
+            toast.show();
 		}
 		public void onFileSelected(Dialog source, File folder, String name) {
-			source.hide();
-					Toast toast = Toast.makeText(source.getContext(), "File created: " + folder.getName() + "/" + name, Toast.LENGTH_LONG);
-			toast.show();
+            source.hide();
+            Toast toast = Toast.makeText(source.getContext(), "File created: " + folder.getName() + "/" + name, Toast.LENGTH_LONG);
+            toast.show();
 		}
 	});</code>
 
 The interface _!FileChooserDialog.!OnFileSelectedListener_ defines two methods: _onFileSelected(Dialog source, File file)_, which is called when a file is selected; and _onFileSelected(Dialog source, File folder, String name)_, which is called when a file is created.
-Note that it is reponsability of the application to close the dialog once that a file has been selected (in this way, if the user selects an invalid file, the application can show an error message and leave open the dialog, given the posibility to the user of open another file).
+Note that it is reponsibility of the application to close the dialog once that a file has been selected (in this way, if the user selects an invalid file, the application can show an error message and leave open the dialog, given the possibility to the user of open another file).
 
-If you are using an _Activity_ for show the file chooser, then you _Activity_ class implement the method _onActivityResult()_:
+If you are using an _Activity_ for show the file chooser, then your _Activity_ class must implement the method _onActivityResult()_:
 
 <code language="java">
 	@Override

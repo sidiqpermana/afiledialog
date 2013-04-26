@@ -57,7 +57,7 @@ In order to get the _File_ object, representing the file selected, if you are us
             Toast toast = Toast.makeText(source.getContext(), "File created: " + folder.getName() + "/" + name, Toast.LENGTH_LONG);
             toast.show();
         }
-	});</code>
+    });</code>
 
 The interface _!FileChooserDialog.!OnFileSelectedListener_ defines two methods: _onFileSelected(Dialog source, File file)_, which is called when a file is selected; and _onFileSelected(Dialog source, File folder, String name)_, which is called when a file is created.
 Note that it is reponsibility of the application to close the dialog once that a file has been selected (in this way, if the user selects an invalid file, the application can show an error message and leave open the dialog, given the possibility to the user of open another file).
@@ -93,7 +93,7 @@ If you are using an _Activity_ for show the file chooser, then your _Activity_ c
 	    }
 	}</code>
 
-Note that if a file has been created, then the value, inside the _Bundle_ object, represented by the key _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to contain the name of the file and the value represented by the key _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the folder in which the file must be created. Otherwise, if the file has only been selected, _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to be null and _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the file selected.
+Note that if a file has been created, then the value, inside the _Bundle_ object, represented by the key _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to contain the name of the file and the value represented by the key _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the folder in which the file must be created. Otherwise, if a file has only been selected, _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to be null and _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the file selected.
 
 ==1.4. Code samples==
 
@@ -103,7 +103,7 @@ If you would like to have a full code sample, you can download the file [http://
 
 ==2.1. Select folders==
 
-By default, the file chooser selects files, but you can configure it in order to selects folders. In this case, an "Ok" buttons is going to appear in the bottom of the file chooser, this buttons is used for select the current folder (since the events of touching a folder is used to enter the folder and display all the files that are inside him). 
+By default, the file chooser selects files, but you can configure it in order to select folders. In this case, an "Ok" button is going to appear in the bottom of the file chooser, this button is used for select the current folder (since the events of touching a folder is used to enter the folder and display all the files that are inside him). 
 
 If you are using a _Dialog_ for display the file chooser, then you must call the method _setFolderMode()_ from _!FileChooserDialog_ passing "true" as parameter:
 
@@ -140,7 +140,7 @@ If you are using an _Activity_, then you must put an extra in the _Intent_ with 
 
 ==2.3. Filter files==
 
-By default, the file chooser allows to the user to select any file, however we can user regular expressions in order to define which files can be selected and which not, depending of his name or extension.
+By default, the file chooser allows to the use to select any file, however we can user regular expressions in order to define which files can be selected and which not, depending of his name or extension.
 
 If you are using a _Dialog_, then you must call the method _setFilter()_ from the class _aFileDialog_, passing the regular expression as parameter (in this example, the regular expression defines that only image files can be selected):
 
@@ -156,7 +156,7 @@ If you are using an _Activity_, then you must put an extra in the _Intent_ with 
     intent.putExtra(FileChooserActivity.INPUT_REGEX_FILTER, ".*jpg|.*png|.*gif|.*JPG|.*PNG|.*GIF");
     this.startActivityForResult(intent, 0);</code>
 
-When filtering files, you can also define if the files that do not pass the filter must be hide or not (in which case they are going to be displayed in gray, in order to indicate that they can not be selected.
+When filtering files, you can also define if the files that do not pass the filter must be hide or not (in which case they are going to be displayed in gray, in order to indicate that they can not be selected).
 In order to do it, if you are using a _Dialog_ then you must call the method _setShowOnlySelectable()_ of the class _!FileChooserDialog_; if you are using an _Activity_, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_SHOW_ONLY_SELECTABLE_.
 
 ==2.4. Show confirmation dialogs==
@@ -183,7 +183,7 @@ Note that the messages displayed can be customized by using the class _!FileChoo
 ==2.5. Define custom labels==
 
 You can re-define all the messages and labels that are displayed by the library, in order to add customized messages or in order to add support to more languages.
-In order to do it, you must only creates an instance of _!FileChooserLabels_ and define the value of the texts that you want to change (note that, in the confirmations messages, the string "$file_name" is going to be replaced by the name of the selected file):
+In order to do it, you must only create an instance of _!FileChooserLabels_ and define the value of the texts that you want to change (note that, in the confirmations messages, the string "$file_name" is going to be replaced by the name of the selected file):
 
 <code language="java">
     FileChooserLabels labels = new FileChooserLabels();

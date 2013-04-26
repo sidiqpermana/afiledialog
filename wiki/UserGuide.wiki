@@ -43,7 +43,7 @@ If you are displaying the file chooser using an _Activity_, then you must put an
 
 ==1.3. Get the file selected==
 
-In order to get the _File_ object, representing the file selected, if you are using a _Dialog_ for display the file chooser, then you must call the method _addListener()_, of the class _!FileChooserDialog_, passing as parameter an implementation of the interface _!FileChooserDialog.OnFileSelectedListener_:
+In order to get the _File_ object, representing the file selected, if you are using a _Dialog_ for display the file chooser, then you must call the method _addListener()_, of the class _!FileChooserDialog_, passing as parameter an implementation of the interface _!FileChooserDialog.!OnFileSelectedListener_:
 
 <code language="java">
     dialog.addListener(new FileChooserDialog.OnFileSelectedListener() {
@@ -59,7 +59,7 @@ In order to get the _File_ object, representing the file selected, if you are us
 		}
 	});</code>
 
-The interface _!FileChooserDialog.OnFileSelectedListener_ defines two methods: _onFileSelected(Dialog source, File file)_, which is called when a file is selected; and _onFileSelected(Dialog source, File folder, String name)_, which is called when a file is created.
+The interface _!FileChooserDialog.!OnFileSelectedListener_ defines two methods: _onFileSelected(Dialog source, File file)_, which is called when a file is selected; and _onFileSelected(Dialog source, File folder, String name)_, which is called when a file is created.
 Note that it is reponsability of the application to close the dialog once that a file has been selected (in this way, if the user selects an invalid file, the application can show an error message and leave open the dialog, given the posibility to the user of open another file).
 
 If you are using an _Activity_ for show the file chooser, then you _Activity_ class implement the method _onActivityResult()_:
@@ -131,7 +131,7 @@ If you are using a _Dialog_, then you must call the method _setCanCreateFiles()_
     dialog.setCanCreateFiles(true);
     dialog.show();</code>
 
-If you are using an _Activity_, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_CAN_CREATE_FILES_ and value "true":
+If you are using an _Activity_, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_CAN_CREATE_FILES_ and value "true":
 
 <code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);

@@ -51,12 +51,12 @@ In order to get the _File_ object, representing the file selected, if you are us
             source.hide();
             Toast toast = Toast.makeText(source.getContext(), "File selected: " + file.getName(), Toast.LENGTH_LONG);
             toast.show();
-		}
-		public void onFileSelected(Dialog source, File folder, String name) {
+        }
+        public void onFileSelected(Dialog source, File folder, String name) {
             source.hide();
             Toast toast = Toast.makeText(source.getContext(), "File created: " + folder.getName() + "/" + name, Toast.LENGTH_LONG);
             toast.show();
-		}
+        }
 	});</code>
 
 The interface _!FileChooserDialog.!OnFileSelectedListener_ defines two methods: _onFileSelected(Dialog source, File file)_, which is called when a file is selected; and _onFileSelected(Dialog source, File folder, String name)_, which is called when a file is created.

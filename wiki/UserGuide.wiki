@@ -93,90 +93,99 @@ If you are using an _Activity_ for show the file chooser, then you _Activity_ cl
 	    }
 	}</code>
 
-Note that if a file has been created, then the value, inside the _Bundle_ object, represented by the key _FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to contain the name of the file and the value represented by the key _FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the folder in which the file must be created. Otherwhise, if the file has only been selected, _FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to be null and _FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the file selected.
+Note that if a file has been created, then the value, inside the _Bundle_ object, represented by the key _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to contain the name of the file and the value represented by the key _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the folder in which the file must be created. Otherwise, if the file has only been selected, _!FileChooserActivity.OUTPUT_NEW_FILE_NAME_ is going to be null and _!FileChooserActivity.OUTPUT_FILE_OBJECT_ is going to contain the file selected.
 
-++++ 1.4. Code samples
+==1.4. Code samples==
 
-If you would like to have a full code sample, you can download the file _*aFileDialog-1.0-Full.zip*_, which contains an Eclipse project that references and uses the library _aFileDialog_.
+If you would like to have a full code sample, you can download the file [http://afiledialog.googlecode.com/files/aFileDialog-1.0-Full.zip aFileDialog-1.0-Full.zip], which contains an Eclipse project that references and uses the library _aFileDialog_.
 
-+++ 2. Advanced features
-++++ 2.1. Select folders
+=2. Advanced features=
 
-By default, the file chooser selects files, but you can configure it in order to selects folders. In this case, an "Ok" buttons is going to appear in the bottom of the file chooser, this buttons is used for select the current folder (since the evetns of touching a folder is used to enter the folder and display all the files that are inside him). 
+==2.1. Select folders==
 
-If you are using a _Dialog_ for display the file chooser, then you must call the method _setFolderMode()_ from _FileChooserDialog_ passing "true" as parameter:
-<<pre
+By default, the file chooser selects files, but you can configure it in order to selects folders. In this case, an "Ok" buttons is going to appear in the bottom of the file chooser, this buttons is used for select the current folder (since the events of touching a folder is used to enter the folder and display all the files that are inside him). 
+
+If you are using a _Dialog_ for display the file chooser, then you must call the method _setFolderMode()_ from _!FileChooserDialog_ passing "true" as parameter:
+
+<code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.setFolderMode(true);
-    dialog.show();
->>
-If you are using an _Activity_ for display the file chooser, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_FOLDER_MODE_ and value "true":
-<<pre
+    dialog.show();</code>
+
+If you are using an _Activity_ for display the file chooser, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_FOLDER_MODE_ and value "true":
+
+<code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
     intent.putExtra(FileChooserActivity.INPUT_FOLDER_MODE, true);
-    this.startActivityForResult(intent, 0);
->>
+    this.startActivityForResult(intent, 0);</code>
 
-++++ 2.2. Create files
+==2.2. Create files==
 
 You can configure the file chooser to show a "New" button which is going to allow to the user to create new files or folders, by showing a prompt dialog in which the user can write the name of the file or folder that he wants to create.
-Note that the file chooser do not creates the file, it only returns the folder in which the file must be created and the name of the file. It is responsability of the application that opened the file chooser to create the file and to add the corresponding file extension to the file's name. 
+Note that the file chooser do not creates the file, it only returns the folder in which the file must be created and the name of the file. It is responsibility of the application that opened the file chooser to create the file and to add the corresponding file extension to the file's name. 
 
 If you are using a _Dialog_, then you must call the method _setCanCreateFiles()_ from the class _aFileDialog_, passing "true" as parameter:
-<<pre
+
+<code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.setCanCreateFiles(true);
-    dialog.show();
->>
+    dialog.show();</code>
+
 If you are using an _Activity_, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_CAN_CREATE_FILES_ and value "true":
-<<pre
+
+<code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
     intent.putExtra(FileChooserActivity.INPUT_CAN_CREATE_FILES, true);
-    this.startActivityForResult(intent, 0);
->>
-++++ 2.3. Filter files
+    this.startActivityForResult(intent, 0);</code>
 
-By default, the file chooser allows to the user to select any file, however we can user regullar expressions in order to define which files can be selected and which not, depending of his name or extension.
+==2.3. Filter files==
+
+By default, the file chooser allows to the user to select any file, however we can user regular expressions in order to define which files can be selected and which not, depending of his name or extension.
 
 If you are using a _Dialog_, then you must call the method _setFilter()_ from the class _aFileDialog_, passing the regular expression as parameter (in this example, the regular expression defines that only image files can be selected):
-<<pre
+
+<code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.setFilter(".*jpg|.*png|.*gif|.*JPG|.*PNG|.*GIF");
-    dialog.show();
->>
-If you are using an _Activity_, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_CAN_CREATE_FILES_ and the regular expression as value:
-<<pre
+    dialog.show();</code>
+
+If you are using an _Activity_, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_CAN_CREATE_FILES_ and the regular expression as value:
+
+<code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
     intent.putExtra(FileChooserActivity.INPUT_REGEX_FILTER, ".*jpg|.*png|.*gif|.*JPG|.*PNG|.*GIF");
-    this.startActivityForResult(intent, 0);
->>
-When filtering files, you can also define if the files that do not pass the filter must be hide or not (in which case they are going to be displayed in gray, in order to indicate that they can not be selected.
-In order to do it, if you are using a _Dialog_ then you must call the method _setShowOnlySelectable()_ of the class _FileChooserDialog_; if you are using an _Activity_, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_SHOW_ONLY_SELECTABLE_.
+    this.startActivityForResult(intent, 0);</code>
 
-++++ 2.4. Show confirmation dialogs
+When filtering files, you can also define if the files that do not pass the filter must be hide or not (in which case they are going to be displayed in gray, in order to indicate that they can not be selected.
+In order to do it, if you are using a _Dialog_ then you must call the method _setShowOnlySelectable()_ of the class _!FileChooserDialog_; if you are using an _Activity_, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_SHOW_ONLY_SELECTABLE_.
+
+==2.4. Show confirmation dialogs==
 
 You can configure the file chooser for show a yes/no confirmation dialog when selecting or creating a file, in order to display messages of the type "Are you sure that you want to open this file?".
 
 If you are using a _Dialog_, then you must call the method _setShowConfirmation()_ from the class _aFileDialog_, the first parameter defines if the confirmation dialog must be show when opening a file and the second parameter if the confirmation dialog must be show when creating a file:
-<<pre
+
+<code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.setShowConfirmation(true, false);
-    dialog.show();
->>
-If you are using an _Activity_, then you must put two extras in the _Intent_ with names _FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE_ and _FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_SELECT_:
-<<pre
+    dialog.show();</code>
+
+If you are using an _Activity_, then you must put two extras in the _Intent_ with names _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE_ and _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_SELECT_:
+
+<code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
     intent.putExtra(FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_SELECT, true);
     intent.putExtra(FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE, false);
-    this.startActivityForResult(intent, 0);
->>
-Note that the messages displayed can be customized by using the class _FileChooserLabels_.
+    this.startActivityForResult(intent, 0);</code>
 
-++++ 2.5. Define custom labels
+Note that the messages displayed can be customized by using the class _!FileChooserLabels_.
+
+==2.5. Define custom labels==
 
 You can re-define all the messages and labels that are displayed by the library, in order to add customized messages or in order to add support to more languages.
-In order to do it, you must only creates an instance of _FileChooserLabels_ and define the value of the texts that you want to change (note that, in the confirmations messages, the string "$file_name" is going to be replaced by the name of the selected file):
-<<pre
+In order to do it, you must only creates an instance of _!FileChooserLabels_ and define the value of the texts that you want to change (note that, in the confirmations messages, the string "$file_name" is going to be replaced by the name of the selected file):
+
+<code language="java">
     FileChooserLabels labels = new FileChooserLabels();
     labels.createFileDialogAcceptButton = "Accept";
     labels.createFileDialogCancelButton = "Cancel";
@@ -187,17 +196,18 @@ In order to do it, you must only creates an instance of _FileChooserLabels_ and 
     labels.messageConfirmCreation = "Are you sure that you want to create the file $file_name?";
     labels.messageConfirmSelection = "Are you sure that you want to open the file $file_name?";
     labels.labelConfirmYesButton = "Yes";
-    labels.labelConfirmNoButton = "Note;
->>
+    labels.labelConfirmNoButton = "Note;</code>
+
 Then you must pass this instance to the file chooser. If you are using a _Dialog_, you must call the method _setLabels()_ from the class _aFileDialog_:
-<<pre
+
+<code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.setLabels(labels);
-    dialog.show();
->>
-If you are using an _Activity_, then you must put an extra in the _Intent_ with name _FileChooserActivity.INPUT_LABELS_:
-<<pre
+    dialog.show();</code>
+
+If you are using an _Activity_, then you must put an extra in the _Intent_ with name _!FileChooserActivity.INPUT_LABELS_:
+
+<code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
     intent.putExtra(FileChooserActivity.INPUT_LABELS, (Serializable) labels); 
-    this.startActivityForResult(intent, 0);
->>
+    this.startActivityForResult(intent, 0);</code>

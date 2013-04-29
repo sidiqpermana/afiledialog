@@ -29,14 +29,14 @@ Si se desea utilizar una _Activity_ para mostrar el selector de archivos, entonc
     this.startActivityForResult(intent, 0);</code>
 
 Por defecto, el selector de archivos muestra la raíz de la tarjeta SD, sin embargo, se puede cambiar la carpeta que el selector de archivos muestra al iniciarse.
-Si el selector de archivos se está mostrando con un _Dialog_, entonces se debe llamar al método _loadFolder_ de la clase _!FileChooserDialog_:
+Si el selector de archivos se está mostrando con un _Dialog_, entonces se debe llamar al método _loadFolder()_ de la clase _!FileChooserDialog_:
 
 <code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
     dialog.loadFolder(Environment.getExternalStorageDirectory() + "/Download/");
     dialog.show();</code>
 
-Si el selector de archivos se está mostrando utilizando una _Activity_, entonces se debe agregar un extra en el _Intent_ cuyo nombres sea _!FileChooserActivity.INPUT_START_FOLDER_ y cuyo valor sea la ruta de la carpeta:
+Si el selector de archivos se está mostrando utilizando una _Activity_, entonces se debe agregar un extra en el _Intent_ cuyo nombre sea _!FileChooserActivity.INPUT_START_FOLDER_ y cuyo valor sea la ruta de la carpeta:
 
 <code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);
@@ -45,7 +45,7 @@ Si el selector de archivos se está mostrando utilizando una _Activity_, entonce
  
 ==1.3. Obtener el archivo seleccionado==
 
-A fin de obtener el archivo _File_, representando al archivo seleccionado, si se está utilizando un _Dialog_ para mostrar el selector de archivos, entonces se debe llamar al método _addListener()_, de la clase _!FileChooserDialog_, pasandole como parámetro una implementación de la interfaz _!FileChooserDialog.OnFileSelectedListener_:
+A fin de obtener el archivo _File_, representando al archivo seleccionado, si se está utilizando un _Dialog_ para mostrar el selector de archivos, entonces se debe llamar al método _addListener()_, de la clase _!FileChooserDialog_, pasandole como parámetro una implementación de la interfaz _!FileChooserDialog.!OnFileSelectedListener_:
 
 <code language="java">
     dialog.addListener(new FileChooserDialog.OnFileSelectedListener() {
@@ -59,10 +59,9 @@ A fin de obtener el archivo _File_, representando al archivo seleccionado, si se
             Toast toast = Toast.makeText(source.getContext(), "File created: " + folder.getName() + "/" + name, Toast.LENGTH_LONG);
             toast.show();
 		}
-	});
->>
+	});</code>
 
-La interfaz _!FileChooserDialog.OnFileSelectedListener_ define dos métodos: _onFileSelected(Dialog source, File file)_, que es invocado cuando un archivo es seleccionado; y _onFileSelected(Dialog source, File folder, String name)_, que es invocado cuando un archivo es creado.
+La interfaz _!FileChooserDialog.!OnFileSelectedListener_ define dos métodos: _onFileSelected(Dialog source, File file)_, que es invocado cuando un archivo es seleccionado; y _onFileSelected(Dialog source, File folder, String name)_, que es invocado cuando un archivo es creado.
 Es necesario tener en cuenta de que es responsabilidad de la aplicación cerrar el selector de archivos una vez que el archivo a sido seleccionado (de esta forma, si el usuario selecciona un archivo incorrecto, la aplicación puede mostrar un mensaje de error y continuar mostrando el selector de archivos, permitiendo al usuario seleccionar otro archivo).
 
 Si se está usando una _Activity_ para mostrar el selector de archivos, entonces la _Activity_ que abre al selector de archivos debe implementar el método _onActivityResult()_:

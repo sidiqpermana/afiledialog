@@ -64,29 +64,29 @@ El software se estructuró haciendo uso de los patrones de diseños propios de l
 
 ==5.1. Introducción==
 
-La librería está compuesta principalmente por seis archivos Java (_!FileChooser_, _!FileChooserCore_, _!FileChooserDialog_, _!FileChooserActivity_, _!FileChooserLabels_ y _!FileItem_) y por dos archivos XML de layout (_file_chooser_ y _file_item_):
-    * El núcleo de la librería está definido por la clase _!FileChooserCore_, que implementa las principales funcionalidades, y el layout _file_chooser_, que define la interfaz gráfica de los selectores de archivos.
+La librería está compuesta principalmente por seis archivos Java (_!FileChooser_, _!FileChooserCore_, _!FileChooserDialog_, _!FileChooserActivity_, _!FileChooserLabels_ y _!FileItem_) y por dos archivos XML de layout (_daidalos_file_chooser_ y _daidalos_file_item_):
+    * El núcleo de la librería está definido por la clase _!FileChooserCore_, que implementa las principales funcionalidades, y el layout _daidalos_file_chooser_, que define la interfaz gráfica de los selectores de archivos.
     * Las clases _!FileChooserDialog_ y _!FileChooserActivity_ se encargan principalmente de embeber las funcionalidades, implementadas en _!FileChooserCore_, en, respectivamente, una _Dialog_ y en una _Activity_. Esto lo realizan al implementar la interfaz _!FileChooser_, la cual define los métodos callback que la clase _!FileChooserCore_ requiere para poder responder a los diferentes eventos de interfaz.
     * La clase _!FileChooserLabels_ permite re-definir los valores de los textos y las etiquetas que son mostrados en los selectores de archivos, a fin de permitir internacionalizar la librería.
-    * La clase _!FileItem_ y la layout _file_item_ permiten definir un componente gráfico para representar a los archivos y los directorios, que serán listados en el selector de archivos.
+    * La clase _!FileItem_ y la layout _daidalos_file_item_ permiten definir un componente gráfico para representar a los archivos y los directorios, que serán listados en el selector de archivos.
 
 ==5.2. Selector de archivos==
 
 Todas las funcionalidades del selector de archivos se encuentran implementadas en la clase _!FileChooserCore_, la cual, en su constructor, requiere una instancia de la interfaz _!FileChooser_.
  
-_!FileChooser_ define los métodos que una subclase de _View_, que utilice el layout _file_chooser_, debe implementar a fin de poder ser utilizada como un selector de archivos.
+_!FileChooser_ define los métodos que una subclase de _View_, que utilice el layout _daidalos_file_chooser_, debe implementar a fin de poder ser utilizada como un selector de archivos.
 
 De esta forma se puede 'simular' la herencia múltiple (la cual no es soportada por Java): las clases _!FileChooserDialog_ y _!FileChooserActivity_ heredan, respectivamente, de las clases _Dialog_ y _Activity_, y en sus constructores crean una instancia de _!FileChooserCore_ a fin 'heredar' también las funcionalidades implementadas por esta clase.
 
 ==5.3. Interfaz gráfica==
 
-La interfaz gráfica está definida por los archivos XML de layout _file_chooser_ y _file_item_.
+La interfaz gráfica está definida por los archivos XML de layout _daidalos_file_chooser_ y _daidalos_file_item_.
 
-_file_chooser_ define la interfaz de los selectores de archivos, la cual se compone de un layout vertical, que ocupa todo el alto y ancho de la pantalla y en el que se ubican los archivos y directorios que se pueden seleccionar, y de dos botones en la parte inferior, uno para crear archivos o directorios y otros para seleccionar el directorio actual (en el caso de que se esté en el modo de selección de directorios).
+_daidalos_file_chooser_ define la interfaz de los selectores de archivos, la cual se compone de un layout vertical, que ocupa todo el alto y ancho de la pantalla y en el que se ubican los archivos y directorios que se pueden seleccionar, y de dos botones en la parte inferior, uno para crear archivos o directorios y otros para seleccionar el directorio actual (en el caso de que se esté en el modo de selección de directorios).
 
-_file_item_ define la interfaz del componete gráfico utilizado para representar a los archivos y carpetas que se listan en el layout vertical de los selectores de archivos. Este compnente se compone de un ícono (que permite diferenciar los archivos de las carpetas) y de un label (con el nombre del archivo).
+_daidalos_file_item_ define la interfaz del componete gráfico utilizado para representar a los archivos y carpetas que se listan en el layout vertical de los selectores de archivos. Este compnente se compone de un ícono (que permite diferenciar los archivos de las carpetas) y de un label (con el nombre del archivo).
 
-El layout _file_chooser_ es utilizado por las clases _!FileChooserDialog_ y _!FileChooserActivity_, que actúan de intermediarios entre el layout y la clase _!FileChooserCore_, mientras que el layout _file_item_ es utilizado por la clase _!FileItem_, la cual es una subclase _!LinearLayout_ que define un componente gráfico para representar archivos y directorios.
+El layout _daidalos_file_chooser_ es utilizado por las clases _!FileChooserDialog_ y _!FileChooserActivity_, que actúan de intermediarios entre el layout y la clase _!FileChooserCore_, mientras que el layout _daidalos_file_item_ es utilizado por la clase _!FileItem_, la cual es una subclase _!LinearLayout_ que define un componente gráfico para representar archivos y directorios.
 
 ==5.4. Internacionalización==
 

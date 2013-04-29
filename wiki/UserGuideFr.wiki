@@ -1,14 +1,6 @@
 #summary Guide de l'utilisateur
 #labels user,guide,french,guide,utilisateur
 
-= Introduction =
+Site en construction
 
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Date estimée de finalisation: 2 Mai

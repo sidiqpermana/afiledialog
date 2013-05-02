@@ -144,7 +144,7 @@ Si se está utilizando una _Activity_, entonces se debe poner un extra en el _In
 
 Por defecto, el selector de archivos permite al usuario seleccionar cualquier archivo, sin embargo se pueden utilizar expresiones regulares a fin de definir que archivos pueden ser seleccionados o no, dependiendo de su nombre o de su extensión.
 
-Si se está utilizando un _Dialog_, entonces se debe llamar al método _setFilder_ de la clase _!FileChooserDialog_, pasando la expresión regular como parámetro (en este ejemplo, la expresión regular define que solo archivos de imágenes puedan ser seleccionados):
+Si se está utilizando un _Dialog_, entonces se debe llamar al método _setFilter()_ de la clase _!FileChooserDialog_, pasando la expresión regular como parámetro (en este ejemplo, la expresión regular define que solo archivos de imágenes puedan ser seleccionados):
 
 <code language="java">
     FileChooserDialog dialog = new FileChooserDialog(this);
@@ -172,7 +172,7 @@ Si se está utilizando un _Dialog_, entonces se debe llamar al método _setShowC
     dialog.setShowConfirmation(true, false);
     dialog.show();</code>
 
-Si si se está utilizando una _Activity_, entonces se debe poner dos extras en el _Intent_ con los nombres _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE_ y _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_SELECT_:
+Si se está utilizando una _Activity_, entonces se debe poner dos extras en el _Intent_ con los nombres _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE_ y _!FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_SELECT_:
 
 <code language="java">
     Intent intent = new Intent(this, FileChooserActivity.class);

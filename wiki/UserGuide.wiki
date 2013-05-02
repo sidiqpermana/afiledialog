@@ -163,7 +163,7 @@ Pour faire ça, si on utilise un _Dialog_, alors on doit appeler le méthode _se
 
 == 2.4. Afficher messages de confirmation ==
 
-Le sélecteur de fichiers peut être paramétré  pour afficher de fénetres avec messages de confirmation (avec les options "Oui" et "Non") au sélectionner ou créer un fichier, avec messages comme "Vous êtes sure que vous voulez ouvrir ce fichier?".
+Le sélecteur de fichiers peut être paramétré  pour afficher de fenêtres avec messages de confirmation (avec les options "Oui" et "Non") au sélectionner ou créer un fichier, avec messages comme "Vous êtes sure que vous voulez ouvrir ce fichier?".
 
 Si on utilise un _Dialog_, on doit appeler le méthode _setShowConfirmation()_ de la classe _!FileChooserDialog_, le premier paramètre définit si un fenêtre de confirmation doit être affiché au ouvrir un fichier et le deuxième paramètre si la fenêtre doit être affiché quand on créé un fichier:
 
@@ -180,7 +180,7 @@ Si on utilise une _Activity_, on doit ajouter deux extras au _Intent_ avec les n
     intent.putExtra(FileChooserActivity.INPUT_SHOW_CONFIRMATION_ON_CREATE, false);
     this.startActivityForResult(intent, 0);</code>
 	
-Il faut remarquer que les messages des fenêtres peuvent être changés avec la classe  _FileChooserLabels_.
+Il faut remarquer que les messages des fenêtres peuvent être changés avec la classe _!FileChooserLabels_.
 
 == 2.5. Paramétrer étiquettes ==
 

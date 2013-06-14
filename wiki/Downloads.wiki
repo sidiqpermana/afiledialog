@@ -1,6 +1,8 @@
 #summary Downloads section
 #labels downloads,versions
 
-|| *Version* || *Full* || *Basic* || *Notes ||
-|| 1.02 || http://afiledialog.googlecode.com/svn/aFileDialog-1.02-Full.zip || http://afiledialog.googlecode.com/svn/aFileDialog-1.02.zip || Adds dsfklj jklsdfjklsd jklsd jsdflkjsd fklklj sdflkj dsljkf ||
-|| 1.0 || http://afiledialog.googlecode.com/svn/aFileDialog-1.0-Full.zip || http://afiledialog.googlecode.com/svn/aFileDialog-1.0.zip || First public release ||
+Select the version that you want to download:
+
+|| *Version* || *Full* || *Library only* || *Notes ||
+|| 1.02 || [http://afiledialog.googlecode.com/svn/aFileDialog-1.02-Full.zip aFileDialog 1.02 Full] || [http://afiledialog.googlecode.com/svn/aFileDialog-1.02.zip aFileDialog 1.02] || Adds dsfklj jklsdfjklsd jklsd jsdflkjsd fklklj sdflkj dsljkf ||
+|| 1.0 || [http://afiledialog.googlecode.com/svn/aFileDialog-1.0-Full.zip aFileDialog 1.0 Full] || [http://afiledialog.googlecode.com/svn/aFileDialog-1.0.zip aFileDialog 1.0] || First public release ||

@@ -142,7 +142,7 @@ If you are using an _Activity_, then you must put an extra in the _Intent_ with 
 
 ==2.3. Filter files==
 
-By default, the file chooser allows to the use to select any file, however we can user regular expressions in order to define which files can be selected and which not, depending of his name or extension.
+By default, the file chooser allows to the user to select any file, however we can user regular expressions in order to define which files can be selected and which not, depending of his name or extension.
 
 If you are using a _Dialog_, then you must call the method _setFilter()_ from the class _aFileDialog_, passing the regular expression as parameter (in this example, the regular expression defines that only image files can be selected):
 

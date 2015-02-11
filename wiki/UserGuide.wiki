@@ -12,6 +12,11 @@ In order to use _aFileDialog_ in your application you must do two steps:
 <code language="xml">
     <activity android:name="ar.com.daidalos.afiledialog.FileChooserActivity" /></code>
 
+    # Add the permission _READ_EXTERNAL_STORAGE_ to the _manifest_ file, if you want to access the SD card (and if you are using Android 4.1 or superior).
+
+<code language="xml">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /></code>
+
 You can check the [http://developer.android.com/tools/projects/projects-eclipse.html Android documentation] in order to get more information about how to reference a library project and how to declare an activity in the manifest file.
 
 ==1.2. Show the dialog==

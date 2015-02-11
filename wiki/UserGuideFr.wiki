@@ -14,7 +14,7 @@ Pour utiliser _aFileDialog_, dans votre logiciel, il faut suivre les suivants pa
 <code language="xml">
     <activity android:name="ar.com.daidalos.afiledialog.FileChooserActivity" /></code>
 
-*3)* Déclarer le permis _!FileChooserActivity_ dans le fichier de manifeste, si on a besoin d’accéder à la carte SD (et si on utilise Android 4.1 ou supérieur).
+*3)* Déclarer le permis _READ_EXTERNAL_STORAGE_ dans le fichier de manifeste, si on a besoin d’accéder à la carte SD (et si on utilise Android 4.1 ou supérieur).
 
 <code language="xml">
      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /></code>
